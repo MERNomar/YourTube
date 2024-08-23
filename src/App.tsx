@@ -13,8 +13,9 @@ function App() {
     console.log(isAudioOnly);
   }, [isAudioOnly]);
 
-  const startDownload = async () => {
+  const startDownload = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     try {
+      e.preventDefault();
       if (mediaLink === "") {
         throw new Error("No Link Provided");
       }
@@ -48,7 +49,10 @@ function App() {
           <header>
             <img src="/yourTubeLogo.svg" alt="logo" />
           </header>
-          <div className="flex justify-center">
+          <form
+            className="flex justify-center"
+            onSubmit={(e) => startDownload(e)}
+          >
             <div className="relative w-full mr-1">
               <input
                 onChange={(e) => setMediaLink(e.target.value)}
@@ -72,12 +76,12 @@ function App() {
             </div>
             <button
               className="pl-1 pr-1 font-medium transition-colors duration-75 bg-gray-400 rounded-md hover:bg-gray-500"
-              onClick={() => startDownload()}
+              type="submit"
               disabled={loading ? true : false}
             >
               {loading ? "loading..." : "Download"}
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </>
