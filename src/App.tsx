@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { downloadYoutube } from "./youtubeDownloader";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+import Logo from "./Logo";
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [inputError, setInputError] = useState<{ errorMessage: any }>({
@@ -45,11 +47,11 @@ function App() {
 
   return (
     <>
-      <div className="h-[100vh] flex flex-col justify-between ">
-        <main className="flex items-center justify-center font-sans appearance-none h-96">
-          <div className="m-5 mt-[5vh]">
-            <header className="mb-5">
-              <img src="./yourTubeLogo.svg" alt="logo" />
+      <div className="h-[100%] min-h-[100%] w-[100vw] flex flex-col justify-between box-border overflow-hidden items-center text-center">
+        <main className="flex items-center justify-center font-sans appearance-none h-96 lg:w-[50%] lg:mt-12 w-[90%]">
+          <div className="m-5 mt-[5vh] w-[100%]">
+            <header className="mb-2 w-[100%]">
+              <Logo />
             </header>
             <form
               className="flex justify-center"
@@ -87,7 +89,7 @@ function App() {
           </div>
         </main>
         <footer className="flex items-center justify-between w-full h-10 bg-gray-300">
-          <div className="ml-2 text-gray-600">
+          <div className="ml-2 text-gray-600 line-clamp-1">
             Developed by{" "}
             <a
               className="font-bold text-gray-800 hover:underline"
