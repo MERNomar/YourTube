@@ -49,7 +49,7 @@ function App() {
         <main className="flex items-center justify-center font-sans appearance-none h-96">
           <div className="m-5 mt-[5vh]">
             <header className="mb-5">
-              <img src="/yourTubeLogo.svg" alt="logo" />
+              <img src="./yourTubeLogo.svg" alt="logo" />
             </header>
             <form
               className="flex justify-center"
